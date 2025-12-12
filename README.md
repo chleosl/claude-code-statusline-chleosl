@@ -27,4 +27,7 @@ Line 4: current_working_directory
 /plugin install claude-code-statusline@chleosl
 ```
 
+## Image
+
 ![Claude Statusline Overview](./assets/claude_statusline_overview.png)
+![Claude Statusline Overview(close shot)](./assets/claude_statusline_overview_close.png)
