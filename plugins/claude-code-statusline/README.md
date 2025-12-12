@@ -24,7 +24,7 @@ Line 4: current_working_directory
 ## Installation
 
 ```bash
-/plugin marketplace add chleosl/claude-code-statusline
+/plugin marketplace add chleosl/claude-code-statusline-chleosl
 /plugin install claude-code-statusline@chleosl
 /setup-chleosl-statusline
 ```
