@@ -30,31 +30,10 @@ _   _   _   _   _   ▯   ▯   ▯   ▯   ▯
 0   1   2   3   4   5   6   7   8   9
 ```
 
-## Dependencies
-
-- jq
-- curl
-- git
-- awk
-
-## Configuration
-
-Optional: Create `~/.claude/statusline-blink` with content `on` to enable blinking progress indicator.
-
 ## Installation
 
-1. Clone this repository
-2. Configure in your Claude Code settings:
-
-```json
-{
-  "statusLine": {
-    "type": "command",
-    "command": "/path/to/statusline.sh"
-  }
-}
+```bash
+/plugin install claude-code-statusline@chleosl
 ```
 
-## License
-
-MIT
+![Claude Statusline Overview](./assets/claude_statusline_overview.png)
