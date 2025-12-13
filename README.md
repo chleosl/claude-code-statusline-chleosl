@@ -32,7 +32,10 @@ Line 4: current_working_directory
 ## Image
 
 ![Claude Statusline Overview](./assets/claude_statusline_overview.png)
+<p align="center">
 <img src="./assets/claude_statusline_overview_close.png" width="85%">
+</p>
+<br>
 
 You can Hide the below three lines and show exclusively-only the top line, by
 
@@ -40,4 +43,6 @@ You can Hide the below three lines and show exclusively-only the top line, by
 /toggle-statusline-additionalinfo-collapse
 ```
 
+<p align="center">
 <img src="./assets/claude_statusline_collapsed_overview.png" width="85%">
+</p>
