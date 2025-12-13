@@ -32,4 +32,12 @@ Line 4: current_working_directory
 ## Image
 
 ![Claude Statusline Overview](./assets/claude_statusline_overview.png)
-![Claude Statusline Overview(close shot)](./assets/claude_statusline_overview_close.png)
+<img src="./assets/claude_statusline_overview_close.png" width="85%">
+
+You can Hide the below three lines and show exclusively-only the top line, by
+
+```bash
+/toggle-statusline-additionalinfo-collapse
+```
+
+<img src="./assets/claude_statusline_collapsed_overview.png" width="85%">

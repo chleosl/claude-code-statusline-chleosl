@@ -15,6 +15,7 @@
 #
 # Configuration:
 #   ~/.claude/statusline-blink  - Set to "on" to enable blinking progress indicator
+#   ~/.claude/statusline-extra  - Set to "on" to show weather and cwd lines (default: off)
 #
 
 # Read stdin JSON data from Claude Code
@@ -54,6 +55,10 @@ remainder=$((usage_percent % 10))
 # Optional blink effect for current position indicator
 blink_enabled="off"
 [ -f ~/.claude/statusline-blink ] && blink_enabled=$(cat ~/.claude/statusline-blink)
+
+# Show extra lines (weather, cwd) - default on
+show_extra="on"
+[ -f ~/.claude/statusline-extra ] && show_extra=$(cat ~/.claude/statusline-extra)
 
 # Gradient colors for partial segment (cycles 0-4, 5-9: gray → red)
 PARTIAL_COLORS=(
@@ -189,7 +194,8 @@ token_color_idx=$((usage_percent / 10))
 TOKEN_COLOR="${TOKEN_COLORS[$token_color_idx]}"
 
 # === Output ===
-printf "${GREEN}+%d${RESET}${DIM}/${RESET}${RED}-%d${RESET} ${GREEN}+%d${RESET}${DIM}/${RESET}${RED}-%d${RESET} ${MAGENTA}|${RESET} ${DIM}%s%%${RESET} ${DIM}[${RESET}%b${DIM}]${RESET} ${DIM}(${RESET}${TOKEN_COLOR}%s${RESET}${DIM})${RESET} ${MAGENTA}|${RESET} ${DIM}%s${RESET}\n%b\n%b\n${DIM}%s${RESET}" \
+# Line 1: stats, context, time (always shown)
+printf "${GREEN}+%d${RESET}${DIM}/${RESET}${RED}-%d${RESET} ${GREEN}+%d${RESET}${DIM}/${RESET}${RED}-%d${RESET} ${MAGENTA}|${RESET} ${DIM}%s%%${RESET} ${DIM}[${RESET}%b${DIM}]${RESET} ${DIM}(${RESET}${TOKEN_COLOR}%s${RESET}${DIM})${RESET} ${MAGENTA}|${RESET} ${DIM}%s${RESET}" \
     "$lines_added" \
     "$lines_removed" \
     "$git_added" \
@@ -197,7 +203,17 @@ printf "${GREEN}+%d${RESET}${DIM}/${RESET}${RED}-%d${RESET} ${GREEN}+%d${RESET}$
     "$usage_percent" \
     "$progress_bar" \
     "$tokens_display" \
-    "$current_time" \
-    "$git_info_line" \
-    "$weather" \
-    "$cwd"
+    "$current_time"
+
+# Line 2: git info
+# - show_extra on: always shown
+# - show_extra off: only shown when not on main/master
+if [ "$show_extra" = "on" ] || { [ "$git_branch_raw" != "main" ] && [ "$git_branch_raw" != "master" ]; }; then
+    printf "\n%b" "$git_info_line"
+fi
+
+# Line 3 & 4: weather and cwd (only shown when show_extra is on)
+if [ "$show_extra" = "on" ]; then
+    printf "\n%b" "$weather"
+    printf "\n${DIM}%s${RESET}" "$cwd"
+fi
