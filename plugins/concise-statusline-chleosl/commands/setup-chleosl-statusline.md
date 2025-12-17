@@ -7,4 +7,4 @@ Update ~/.claude/settings.json to configure the statusLine setting as follows:
     "padding": 0
   }
 
-If statusLine doesn't exist, add it. If it exists, replace it with the above configuration.
+If statusLine doesn't exist, add it. If it exists, replace it with the above configuration. You MUST tell the user to restart Claude Code for changes to take effect.
