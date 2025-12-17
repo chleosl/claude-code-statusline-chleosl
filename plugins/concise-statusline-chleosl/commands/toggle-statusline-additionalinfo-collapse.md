@@ -1,4 +1,4 @@
-Toggle the statusline extra info (weather, cwd, and git info on main).
+Toggle the statusline extra info (weather, cwd, and git info on main). You MUST tell the user to restart Claude Code for changes to take effect.
 
 Run this command to toggle:
 ```bash
