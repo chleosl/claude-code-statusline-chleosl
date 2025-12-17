@@ -36,6 +36,9 @@ Line 4: current_working_directory
 <p align="center">
 <img src="../../assets/claude_statusline_overview_close.png" width="85%">
 </p>
+
+![Claude Statusline Overview](../../assets/claude_statusline_overview_welcom.png)
+
 <br>
 
 You can Hide the below three lines and show exclusively-only the top line, by
